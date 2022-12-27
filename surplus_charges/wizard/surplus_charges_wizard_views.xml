@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="surplus_charges_wizard_form" model="ir.ui.view">
+        <field name="name">surplus charges wizard</field>
+        <field name="model">surplus.charges.wizard</field>
+        <field name="arch" type="xml">
+            <form string="surplus charges">
+                <sheet>
+                    <group class="oe_title">
+                        <field name="product_id"
+                               domain="[('start_date','&lt;=',context_today().strftime('%Y-%m-%d'))]"/>
+                        <field name="surplus_charges"/>
+                    </group>
+                    <footer>
+                        <button class="btn-primary" name="btn_add" string="Add Surplus charges" type="object"/>
+                        <button class="btn-secondary" special="cancel" string="Cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!--    <record id="action_surplus_charges_wizard" model="ir.actions.act_window">-->
+    <!--        <field name="name">surplus charges wizard</field>-->
+    <!--        <field name="type">ir.actions.act_window</field>-->
+    <!--        <field name="res_model">surplus.charges.wizard</field>-->
+    <!--        <field name="view_mode">form</field>-->
+    <!--        <field name="view_id" ref="surplus_charges_wizard_form"/>-->
+    <!--        <field name="target">new</field>-->
+    <!--    </record>-->
+</odoo>

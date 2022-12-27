@@ -1,0 +1,18 @@
+<odoo>
+    <record id="surplus_charges_access_category" model="ir.module.category">
+        <field name="name">Security</field>
+        <field name="description">User access levels for Surplus Charges module</field>
+        <field name="sequence">10</field>
+    </record>
+
+    <record id="security_group_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="surplus_charges.surplus_charges_access_category"/>
+    </record>
+
+    <record id="security_group_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="surplus_charges.surplus_charges_access_category"/>
+        <field eval="[(4,ref('surplus_charges.security_group_user'))]" name="implied_ids"/>
+    </record>
+</odoo>
