@@ -1,1 +1,1 @@
-from . import product, sale_order, surplus_charges
+from . import product_brand,product,sale_order,surplus_charges

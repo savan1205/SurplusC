@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class SaleOrder(models.Model):
@@ -19,3 +19,8 @@ class SaleOrder(models.Model):
             "target": "new",
             "context": {"sale_id": self.id},
         }
+    # @api.onchange('partner_id')
+    # def partner_id_test(self):
+    #     partner_ids = self.env['res.partner'].search([])
+    #     filtered_partner_ids = partner_ids.filtered(lambda x:x.=='')
+    #     print("----------------------------------",filtered_partner_ids)
