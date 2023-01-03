@@ -1,0 +1,10 @@
+<odoo>
+    <data noupdate="0">
+        <record id="website_menu_p_brand" model="website.menu">
+            <field name="name">Brands</field>
+            <field name="url">/brands</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence">50</field>
+        </record>
+    </data>
+</odoo>

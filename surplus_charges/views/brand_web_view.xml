@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Index -->
+    <template id="brand_page" name="Brands">
+        <t t-call="website.layout">
+            <t t-set="additional_title">Brands</t>
+            <center>
+                <h1>
+                    <u>All Brand Details</u>
+                </h1>
+            </center><br/><br/>
+            <hr/>
+            <center>
+                <ul class="pagination">
+                    <li class="page-item" t-as="mychar" t-foreach="range(ord('A'), ord('Z') + 1)">
+                        <a class="page-link" t-att-href="'/brands#%s'%chr(mychar)" t-att-style="'pointer-events: none; color:black; ' if not brands.filtered(lambda x:x.name[0].startswith(chr(mychar))) else ''" t-esc="chr(mychar)"/>
+                    </li>
+                </ul>
+            </center><br></br>
+            <div class="container">
+                <div class="row">
+                    <section t-as="mychar" t-att-id="chr(mychar)" t-foreach="range(ord('A'), ord('Z') + 1)">
+                        <div class="col-lg-6 d-flex align-items-stretch mb-6" t-as="brand" t-foreach="brands" t-if="brand.name[0].upper()==str(chr(mychar))">
+                            <div class="card" style="width: 15rem;">
+<!--                                <img class="img" t-attf-src="/web/image/product.brand/#{brand.id}/logo"/>-->
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <t t-out="brand.name + '-' + str(len(brand.product_ids))"/>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
